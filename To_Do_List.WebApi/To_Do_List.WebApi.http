@@ -1,0 +1,6 @@
+@To_Do_List.WebApi_HostAddress = http://localhost:5039
+
+GET {{To_Do_List.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
