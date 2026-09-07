@@ -2,7 +2,7 @@
 
 namespace To_Do_List.Domain.Entities
 {
-    public class ApplicationUser : IdentityUser<Guid>
+    public class ApplicationUser : IdentityUser
     {
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
