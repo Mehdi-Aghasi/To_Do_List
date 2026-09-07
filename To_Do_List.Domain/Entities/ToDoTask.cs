@@ -12,6 +12,10 @@ namespace To_Do_List.Domain.Entities
         public string UserId { get; private set; }
         public ApplicationUser ApplicationUser { get; private set; }
 
+        public void MarkAsDeleted()
+        {
+            IsDeleted = true;
+        }
 
         private ToDoTask() { }
 

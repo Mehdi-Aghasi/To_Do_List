@@ -8,6 +8,6 @@ namespace To_Do_List.Domain.Interfaces
         Task<ToDoTask> GetTaskByIdAsync(Guid id);
         Task<ToDoTask> CreateTaskAsync(ToDoTask task);
         Task UpdateTaskAsync(ToDoTask task);
-        Task DeleteTaskAsync(ToDoTask task);
+        Task DeleteTaskAsync(Guid id);
     }
 }
