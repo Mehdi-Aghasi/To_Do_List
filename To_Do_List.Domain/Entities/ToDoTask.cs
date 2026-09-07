@@ -17,6 +17,14 @@ namespace To_Do_List.Domain.Entities
             IsDeleted = true;
         }
 
+        public void Update(string title, string? description, bool isCompleted, DateTime dueDate)
+        {
+            Title = title;
+            Description = description;
+            IsCompleted = isCompleted;
+            dueDate = DueDate;
+        }
+
         private ToDoTask() { }
 
         public ToDoTask(string title, string description, bool isCompleted, DateTime dueDate, string userId)

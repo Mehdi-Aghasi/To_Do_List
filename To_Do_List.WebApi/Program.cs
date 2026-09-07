@@ -1,4 +1,4 @@
-
+using To_Do_List.Application.DependencyInjection;
 using To_Do_List.Infrastructure.DependencyInjection;
 
 namespace To_Do_List.WebApi
@@ -14,6 +14,7 @@ namespace To_Do_List.WebApi
 
             builder.Services.AddOpenApi();
 
+            builder.Services.AddApplicationServices();
             builder.Services.AddInfrastructureServices(builder.Configuration);
             var app = builder.Build();
 
