@@ -9,13 +9,17 @@ namespace To_Do_List.Domain.Entities
         public bool IsCompleted { get; private set; }
         public DateTime DueDate { get; private set; }
         public bool IsDeleted { get; private set; }
-        public Guid UserId { get; private set; }
+        public string UserId { get; private set; }
         public ApplicationUser ApplicationUser { get; private set; }
 
+        public void MarkAsDeleted()
+        {
+            IsDeleted = true;
+        }
 
         private ToDoTask() { }
 
-        public ToDoTask(string title, string description, bool isCompleted, DateTime dueDate, Guid userId)
+        public ToDoTask(string title, string description, bool isCompleted, DateTime dueDate, string userId)
         {
             Id = Guid.NewGuid();
             Title = title;
