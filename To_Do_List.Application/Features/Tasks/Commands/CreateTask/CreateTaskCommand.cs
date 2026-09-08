@@ -7,6 +7,7 @@ namespace To_Do_List.Application.Features.Tasks.Commands.CreateTask
     (
         string Title,
         string? Description,
-        DateTime DueDate
+        DateTime DueDate,
+        string UserId
     ) : IRequest<TaskDto>;
 }
