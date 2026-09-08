@@ -1,3 +1,37 @@
+
+// این فایل نقطه شروع برنامه و مسئولیت پیکربندی تمام سرویس‌ها
+// و middlewareها را بر عهده دارد.
+// 
+// بخش‌های اصلی
+//  Swagger Configuration:
+//    مستندسازی خودکار API
+//    پشتیبانی از JWT Bearer Authentication
+//    امکان تست API از طریق UI
+// 
+// Service Registration:
+//    Application Services: CQRS, Validators, AutoMapper
+//    Infrastructure Services: DbContext, Repository
+//    Identity: مدیریت کاربران و نقش‌ها
+//    JWT Authentication: احراز هویت با توکن
+// 
+// Identity Configuration:
+//    سیاست‌های پسورد حداقل 6 کاراکتر، بدون پیچیدگی
+//    یکپارچگی با Entity Framework Core
+//    Token Providers برای بازیابی پسورد
+// 
+// JWT Authentication
+//    ValidateIssuer: بررسی صادرکننده توکن
+//    ValidateAudience: بررسی مخاطب توکن
+//    ValidateLifetime: بررسی انقضای توکن
+//    ClockSkew: حذف تاخیر 5 دقیقه‌ای پیش‌فرض
+// 
+//  Middleware Pipeline:
+//   UseSwagger: فعال‌سازی Swagger در محیط Development
+//   UseAuthentication: پردازش توکن JWT
+//   UseAuthorization: بررسی دسترسی کاربر
+//    ترتیب مه: Authentication قبل از Authorization
+// ═══════════════════════════════════════════════════════════════
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;

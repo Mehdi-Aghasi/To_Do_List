@@ -1,4 +1,26 @@
-﻿using MediatR;
+﻿
+// این کنترلر مسئولیت دریافت درخواست‌های HTTP مربوط به تسک‌ها
+// و ارسال آنها به لایه Application از طریق MediatR را بر عهده دارد.
+// 
+// ویژگی‌های امنیتی
+// [Authorize]: تمام endpointها نیاز به احراز هویت دارند
+// UserId از توکن JWT استخراج می‌شود امنیت در سطح کاربر
+// 
+// Endpointها
+//  GET /api/Tasks: دریافت لیست تسک‌های کاربر
+// GET /api/Tasks/{id}: دریافت جزئیات یک تسک خاص
+// POST /api/Tasks: ایجاد تسک جدید
+// PUT /api/Tasks/{id}: به‌روزرسانی تسک موجود
+// DELETE /api/Tasks/{id}: حذف منطقی تسک (Soft Delete)
+// 
+// اصول طراحی
+// Thin Controller: کنترلر فقط مسئول دریافت درخواست و ارسال پاسخ
+// CQRS Pattern: جداسازی Command نوشتن Query خواندن
+// MediatR: واسط بین Controller و Application Layer
+// RESTful: استفاده از HTTP Methods استاندارد
+// ═══════════════════════════════════════════════════════════════
+
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
