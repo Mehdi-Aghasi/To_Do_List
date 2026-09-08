@@ -1,4 +1,15 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿
+// این کلاس با ارث‌بری از IdentityUser، قابلیت‌های احراز هویت
+// پیش‌فرض ASP.NET Core را گسترش می‌دهد
+// 
+// فیلدای اضافه شده:
+// FirstName
+// LastName
+// CreatedAt
+// رابطع One-to-Many با ToDoTask (هر کاربر چندین تسک دارد)
+// ═══════════════════════════════════════════════════════════════
+
+using Microsoft.AspNetCore.Identity;
 
 namespace To_Do_List.Domain.Entities
 {
