@@ -1,4 +1,24 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+// این کلاس پیاده‌سازی اینترفیس ITaskRepository است و
+// مسئولیت تعامل مستقیم با دیتابیس را بر عهده دارد.
+// 
+// اصول طراحی
+// Dependency Injection: DbContext از طریق Constructor تزریق می‌شود
+// Async/Await: تمام عملیات به صورت asynchronous برای performance بهتر
+// Single Responsibility: فقط مسئول دسترسی به داده، نه منطق کسب‌وکار
+// 
+// متدهای پیاده‌سازی شده
+// GetAllTasksAsync(): استفاده از LINQ برای کوئری بهینه
+// GetTaskByIdAsync(): کوئری با فیلتر دقیق و handling حالت null
+// AddTaskAsync(): افزودن Entity و ذخیره تغییرات
+// UpdateTaskAsync(): به‌روزرسانی Entity موجود
+// 
+// نکات مهم
+// استفاده از AsNoTracking() در کوئری‌های خواندن (performance)
+// مدیریت صحیح EntityState برای عملیات مختلف
+// ═══════════════════════════════════════════════════════════════
+
+using Microsoft.EntityFrameworkCore;
 using To_Do_List.Domain.Entities;
 using To_Do_List.Domain.Interfaces;
 using To_Do_List.Infrastructure.Data;
