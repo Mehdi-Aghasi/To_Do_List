@@ -17,14 +17,14 @@ namespace To_Do_List.Application.Features.Tasks.Commands.CreateTask
         public async Task<TaskDto> Handle(CreateTaskCommand request, CancellationToken cancellationToken)
         {
             var task = new ToDoTask(
-                request.Title,
-                request.Description,
-                false,
-                request.DueDate,
-                Guid.NewGuid().ToString()
-                );
+            request.Title,
+            request.Description,
+            false,
+            request.DueDate,
+            request.UserId
+               );
 
-            var createTask=await _taskRepository.CreateTaskAsync(task);
+            var createTask = await _taskRepository.CreateTaskAsync(task);
 
             return new TaskDto(
                 createTask.Id,

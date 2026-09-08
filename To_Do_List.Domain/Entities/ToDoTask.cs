@@ -22,7 +22,7 @@ namespace To_Do_List.Domain.Entities
             Title = title;
             Description = description;
             IsCompleted = isCompleted;
-            dueDate = DueDate;
+            DueDate = dueDate;
         }
 
         private ToDoTask() { }
