@@ -45,6 +45,7 @@ namespace To_Do_List.WebApi.Controllers
             command = command with { UserId = userId };
 
             var task = await _mediator.Send(command);
+
             return CreatedAtAction(nameof(GetById), new { id = task.Id }, task);
         }
 

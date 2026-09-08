@@ -71,16 +71,41 @@ namespace To_Do_List.WebApi
             {
                 options.RequireHttpsMetadata = false;
                 options.SaveToken = true;
+
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key), 
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+
                     ValidateIssuer = true,
                     ValidIssuer = jwtSettings["Issuer"],
+
                     ValidateAudience = true,
                     ValidAudience = jwtSettings["Audience"],
+
                     ValidateLifetime = true,
                     ClockSkew = TimeSpan.Zero
+                };
+
+                options.Events = new JwtBearerEvents
+                {
+                    OnAuthenticationFailed = context =>
+                    {
+                        Console.WriteLine("========== JWT ERROR ==========");
+                        Console.WriteLine(context.Exception.ToString());
+                        Console.WriteLine("================================");
+
+                        return Task.CompletedTask;
+                    },
+
+                    OnTokenValidated = context =>
+                    {
+                        Console.WriteLine("========== JWT VALID ==========");
+                        Console.WriteLine(context.Principal?.Identity?.IsAuthenticated);
+                        Console.WriteLine("================================");
+
+                        return Task.CompletedTask;
+                    }
                 };
             });
 
