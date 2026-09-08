@@ -1,4 +1,18 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿
+// این کلاس مسئولیت مدیریت ارتباط با دیتابیس و پیکربندی Entityها
+// را بر عهده دارد
+// 
+// Picket Configuration: پیکربندی دقیق Entityها
+// تعریف Primary Key، Foreign Key
+// تنظیم طول فیلدها و محدودیت‌ه
+// پیکربندی روابط بین Entityها
+// 
+// Identity Integration: یکپارچگی با ASP.NET Core Identity
+// جداول کاربران، نقش‌ها و claimها
+// مدیریت Session و Token
+// ═══════════════════════════════════════════════════════════════
+
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using To_Do_List.Domain.Entities;
 
